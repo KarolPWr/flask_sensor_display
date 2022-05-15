@@ -1,6 +1,6 @@
 import sqlite3
 
-connection = sqlite3.connect('weather_log.db')
+connection = sqlite3.connect('temperature.db')
 
 
 with open('schema.sql') as f:

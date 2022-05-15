@@ -1,0 +1,10 @@
+[Unit]
+Description=Get data from BME280 and update the database
+Requires=sensor_getter.service
+
+[Timer]
+Unit=sensor_getter.service
+OnCalendar=*:0/15
+
+[Install]
+WantedBy=timers.target
