@@ -19,7 +19,8 @@ def get_data_by_interval(interval_hours):
     if interval_hours is None:
         data = conn.execute("SELECT * FROM temperature").fetchall()
     else:
-        data = conn.execute("SELECT * FROM temperature WHERE date>datetime('now','-%s hours')" % interval_hours).fetchall()
+        data = conn.execute(
+            "SELECT * FROM temperature WHERE date>datetime('now','localtime', '-%s hours')" % interval_hours).fetchall()
 
     conn.close()
     return data
@@ -35,7 +36,7 @@ def index():
 
 @app.route('/line')
 def line():
-    data = get_data_by_interval(3)
+    data = get_data_by_interval(6)
     db_data = OrderedDict(data)
     line_dates = db_data.keys()
     line_temperatures = db_data.values()
