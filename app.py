@@ -4,7 +4,7 @@ from collections import OrderedDict
 
 app = Flask(__name__)
 
-DBNAME = 'temperature.db'
+DBNAME = '/home/pi/flask_chart_test/sensor_specific/temperature.db'
 
 
 def get_db_connection():
@@ -13,13 +13,13 @@ def get_db_connection():
     return conn
 
 
-def get_data_by_interval(interval):
+def get_data_by_interval(interval_hours):
     conn = get_db_connection()
 
-    if interval is None:
+    if interval_hours is None:
         data = conn.execute("SELECT * FROM temperature").fetchall()
     else:
-        data = conn.execute("SELECT * FROM temperature WHERE date>datetime('now','-%s hours')" % interval).fetchall()
+        data = conn.execute("SELECT * FROM temperature WHERE date>datetime('now','-%s hours')" % interval_hours).fetchall()
 
     conn.close()
     return data
@@ -35,7 +35,7 @@ def index():
 
 @app.route('/line')
 def line():
-    data = get_data_by_interval(99999)
+    data = get_data_by_interval(24)
     db_data = OrderedDict(data)
     line_dates = db_data.keys()
     line_temperatures = db_data.values()
