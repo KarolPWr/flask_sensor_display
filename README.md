@@ -2,4 +2,9 @@
 
 Software: Flask + Chart.js + SQLite
 
-Hardware: Raspberry Pi + DHT22 
+Hardware: Raspberry Pi + BME280
+
+
+Sample chart with temperature measured in the last 6 hours:
+
+![Alt text](chart.png?raw=true "Optional Title")
