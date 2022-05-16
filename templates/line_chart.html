@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>{{ title }}</title>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+    <style>
+canvas{
+    margin: 0 auto;
+    }
+</style>
+    <meta charset="utf-8"/>
+    <title>{{ title }}</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
 </head>
 
 <body>
-  <center>
-    <h1>{{ title }}</h1>
+<div style="text-align:center">
+<h1>{{ title }}</h1>
 
-    <canvas id="chart" width="600" height="400"></canvas>
-    <script>
+ <div>Last reading: {{ last_temperature }} ℃ </div>
+
+<canvas id="chart" width="800" height="600"></canvas>
+<script>
 
       // bar chart data
       var barData = {
@@ -53,12 +60,14 @@
       // draw bar chart
       var LineChartDemo = new Chart(mychart).Line(barData, {
         scaleStartValue: 0,
-        barShowStroke : true,
+<!--        barShowStroke : true,-->
         scaleShowLabels: true,
         bezierCurve: false,
       });
 
-    </script>
-  </center>
+
+
+</script>
+
 </body>
 </html>

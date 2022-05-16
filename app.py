@@ -35,12 +35,13 @@ def index():
 
 @app.route('/line')
 def line():
-    data = get_data_by_interval(24)
+    data = get_data_by_interval(3)
     db_data = OrderedDict(data)
     line_dates = db_data.keys()
     line_temperatures = db_data.values()
+    last_temperature = next(reversed(db_data.values()))
     return render_template('line_chart.html', title='Temperature', labels=line_dates,
-                           values=line_temperatures)
+                           values=line_temperatures, last_temperature=last_temperature)
 
 
 if __name__ == '__main__':
