@@ -1,18 +1,18 @@
-import smbus2
-import bme280
 import sqlite3
 import math
+import smbus2
+import bme280
 
-port = 1
-address = 0x76
-bus = smbus2.SMBus(port)
+
+PORT = 1
+I2C_ADDRESS = 0x76
+bus = smbus2.SMBus(PORT)
 DBDIR = '/home/pi/flask_chart_test/sensor_specific/'
 DBNAME = 'temperature.db'
 
 
 # store the temperature in the database
 def log_temperature(temp):
-    temp = temp
     conn = sqlite3.connect(DBDIR + DBNAME)
     curs = conn.cursor()
     curs.execute("INSERT INTO temperature values(datetime('now', 'localtime'), (?))", (temp,))
@@ -22,11 +22,11 @@ def log_temperature(temp):
 
 
 def read_temperature():
-    calibration_params = bme280.load_calibration_params(bus, address)
+    calibration_params = bme280.load_calibration_params(bus, I2C_ADDRESS)
 
     # the sample method will take a single reading and return a
     # compensated_reading object
-    data = bme280.sample(bus, address, calibration_params)
+    data = bme280.sample(bus, I2C_ADDRESS, calibration_params)
     # the compensated_reading class has the following attributes
     print(data.id)
     print(data.timestamp)

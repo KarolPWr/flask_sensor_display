@@ -1,6 +1,6 @@
-from flask import Flask, Markup, render_template
-import sqlite3
 from collections import OrderedDict
+import sqlite3
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
