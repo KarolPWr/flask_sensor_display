@@ -14,4 +14,6 @@ echo "Installing sensor_getter service and timer"
 cp "$SCRIPT_DIR"/sensor_specific/sensor_getter.service /etc/systemd/system
 cp "$SCRIPT_DIR"/sensor_specific/sensor_getter.timer /etc/systemd/system
 
+sed -i "/Type=oneshot/a ExecStart=python $SCRIPT_DIR/sensor_specific/sensor_getter.py" /etc/systemd/system/sensor_getter.service
+
 systemctl daemon-reload
