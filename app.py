@@ -40,7 +40,10 @@ def line():
     db_data = OrderedDict(data)
     line_dates = db_data.keys()
     line_temperatures = db_data.values()
-    last_temperature = next(reversed(db_data.values()))
+
+    last_temperature = None
+    if len(db_data.values()) > 1:
+        last_temperature = next(reversed(db_data.values()))
     return render_template('line_chart.html', title='Temperature', labels=line_dates,
                            values=line_temperatures, last_temperature=last_temperature)
 
