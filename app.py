@@ -2,13 +2,13 @@ from collections import OrderedDict
 import sqlite3
 from flask import Flask, render_template
 
-app = Flask(__name__)
+import conf
 
-DBNAME = '/home/pi/flask_chart_test/sensor_specific/temperature.db'
+app = Flask(__name__)
 
 
 def get_db_connection():
-    conn = sqlite3.connect(DBNAME)
+    conn = sqlite3.connect(conf.DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
 
