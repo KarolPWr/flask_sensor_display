@@ -26,7 +26,7 @@ def get_data_by_interval(interval_hours):
     return data
 
 
-@app.route('/')
+@app.route('/debug')
 def index():
     conn = get_db_connection()
     posts = conn.execute('SELECT * FROM temperature').fetchall()
@@ -34,7 +34,7 @@ def index():
     return OrderedDict(posts)  # not dict, because of underlying hash map
 
 
-@app.route('/line')
+@app.route('/temperature')
 def line():
     data = get_data_by_interval(12)
     db_data = OrderedDict(data)
