@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<title>{{ title }}</title>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js'></script>
+    <meta charset="utf-8"/>
+    <title>{{ title }}</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js'></script>
     <style>
 canvas{
     margin: 0 auto;
     }
-</style>
+
+
+    </style>
 </head>
 
 <body>
@@ -29,6 +31,9 @@ canvas{
         ],
 
         datasets : [{
+        label: 'Living room',
+        borderColor: "#3cba9f",
+        fill: false,
           data : [
 	    {% for item in values %}
               {{ item }},
@@ -43,7 +48,9 @@ canvas{
       const config = {
         type: 'line',
         data: barData,
+
         options: {
+
             responsive: false,
             plugins: {
             legend: {
@@ -51,7 +58,6 @@ canvas{
                     },
       title: {
         display: true,
-        text: 'Chart.js Line Chart'
       }
     }
   },
@@ -63,6 +69,8 @@ canvas{
         scaleShowLabels: true,
         bezierCurve: false,
       });
+
+
 
 
 
