@@ -10,11 +10,11 @@ canvas{
     }
 p {
  font-family: Arial;
+ font-size: 20px;
  }
  h1{
  font-family: Arial;
  }
-
 
     </style>
 </head>
@@ -23,9 +23,9 @@ p {
 <div style="text-align:center">
     <h1>{{ title }}</h1>
 
-    <div> <p> Last reading: <b>{{ last_temperature }} ℃ </b> </p></div>
+    <div><p> Last reading: <b>{{ last_temperature }} ℃ </b></p></div>
 
-    <canvas id="chart" width="1200" height="800"></canvas>
+    <canvas height="800" id="chart" width="1200"></canvas>
     <script>
 
       // bar chart data
@@ -56,14 +56,15 @@ p {
         data: barData,
 
         options: {
-<!--        scales: {-->
-<!--            y: {-->
-<!--                suggestedMin: 18,-->
-<!--                suggestedMax: 35-->
-<!--            }-->
-<!--        },-->
+        scales: {
+            x: {
+            grid: {
+              display: false
+            }
+          },
+        },
 
-            responsive: false,
+            responsive: true,
             plugins: {
             legend: {
                 position: 'top',
@@ -81,10 +82,6 @@ p {
         scaleShowLabels: true,
         bezierCurve: false,
       });
-
-
-
-
 
 
     </script>
