@@ -8,6 +8,12 @@
 canvas{
     margin: 0 auto;
     }
+p {
+ font-family: Arial;
+ }
+ h1{
+ font-family: Arial;
+ }
 
 
     </style>
@@ -17,7 +23,7 @@ canvas{
 <div style="text-align:center">
     <h1>{{ title }}</h1>
 
-    <div>Last reading: {{ last_temperature }} ℃</div>
+    <div> <p> Last reading: <b>{{ last_temperature }} ℃ </b> </p></div>
 
     <canvas id="chart" width="1200" height="800"></canvas>
     <script>
@@ -50,6 +56,12 @@ canvas{
         data: barData,
 
         options: {
+<!--        scales: {-->
+<!--            y: {-->
+<!--                suggestedMin: 18,-->
+<!--                suggestedMax: 35-->
+<!--            }-->
+<!--        },-->
 
             responsive: false,
             plugins: {

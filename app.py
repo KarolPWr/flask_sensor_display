@@ -36,7 +36,7 @@ def index():
 
 @app.route('/line')
 def line():
-    data = get_data_by_interval(24)
+    data = get_data_by_interval(12)
     db_data = OrderedDict(data)
     line_dates = db_data.keys()
     line_temperatures = db_data.values()
