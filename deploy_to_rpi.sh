@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
-rsync -av --exclude 'venv' /home/karol.przybylski/PycharmProjects/flask_chart_test pi@192.168.0.163:/home/pi/
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+PI_IP="192.168.0.163"
+DEST_DIR="/home/pi/"
 
-ssh pi@192.168.0.163 << EOF
+rsync -av --exclude 'venv' "$SCRIPT_DIR" pi@$PI_IP:$DEST_DIR
+
+ssh pi@$PI_IP <<"EOF"
   killall python
-  python /home/pi/flask_chart_test/app.py &
+  python $DEST_DIR/app.py &
 EOF
