@@ -26,6 +26,10 @@ Run the web server (default on localhost:9999)
 
     python app.py 
 
+To uninstall running project files execute:
+
+    bash uninstall.sh
+
 ## Hardware setup 
 
 I use Raspberry Pi Zero with Wifi and BME280 sensor. Since different versions of Raspberry are usually compatible when
@@ -46,5 +50,18 @@ To confirm what address your sensor has, connect it to Raspberry and run command
     i2cscan -y <BUS>
 
 Bus in my case was number 1, it could also be 0 or 2. Try different combinations 
+
+## Development 
+
+I normally develop application on desktop and deploy application to Raspberry remotely. To facilitate that, you can use helper script:
+
+    bash deploy_to_rpi.sh
+
+Which will copy project files to specified folder on Raspberry, kill running python app and run the webserver. 
+
+### Using different sensor 
+
+To use different sensor than I, you only need to re-implement sensor reading function `read_temperature()` in `sensor_getter.py` 
+and test if data is correctly written do database (DATE:REAL)
 
 
