@@ -6,7 +6,6 @@ Wants=sensor_getter.timer
 
 [Service]
 Type=oneshot
-ExecStart=python /home/pi/flask_chart_test/sensor_specific/sensor_getter.py
 
 [Install]
 WantedBy=multi-user.target

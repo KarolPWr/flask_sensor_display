@@ -4,7 +4,7 @@ Software: Flask + Chart.js + SQLite + systemd
 
 Hardware: Raspberry Pi + BME280
 
-Sample chart with temperature measured in the last 6 hours:
+Sample chart with temperature measured in the last 12 hours:
 
 ![Alt text](chart.png?raw=true "Optional Title")
 
@@ -65,5 +65,12 @@ Which will copy project files to specified folder on Raspberry, kill running pyt
 
 To use different sensor than I, you only need to re-implement sensor reading function `read_temperature()` in `sensor_getter.py` 
 and test if data is correctly written do database (DATE:REAL)
+
+*Note:* When using BMP280, I2C address will probably be 0x77
+
+### Configuration
+
+Constants are defined in `conf.py` file. If you want to change i.e. sensor's I2C address or database location, you change 
+them in config file it will be automatically recognized by implicated files. 
 
 
