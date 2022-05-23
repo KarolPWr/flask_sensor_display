@@ -28,8 +28,7 @@ p {
     <canvas height="800" id="chart" width="1200"></canvas>
     <script>
 
-      // bar chart data
-      var barData = {
+      var chartData = {
         labels : [
           {% for item in labels %}
             "{{ item }}",
@@ -53,7 +52,7 @@ p {
 
       const config = {
         type: 'line',
-        data: barData,
+        data: chartData,
 
         options: {
         scales: {
@@ -77,7 +76,7 @@ p {
 };
 
       // draw bar chart
-      var LineChartDemo = new Chart(mychart, config).Line(barData, {
+      var LineChartDemo = new Chart(mychart, config).Line(chartData, {
         scaleStartValue: 0,
         scaleShowLabels: true,
         bezierCurve: false,

@@ -32,7 +32,7 @@ def index():
     conn = get_db_connection()
     posts = conn.execute('SELECT * FROM temperature').fetchall()
     conn.close()
-    return OrderedDict(posts)  # not dict, because of underlying hash map
+    return OrderedDict(posts)
 
 
 @app.route('/temperature')
