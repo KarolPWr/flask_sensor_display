@@ -36,6 +36,7 @@ def index():
 
 
 @app.route('/temperature')
+@app.route('/')
 def temperature():
     data = get_data_by_interval(12)
     db_data = OrderedDict(data)

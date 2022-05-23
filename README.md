@@ -24,7 +24,7 @@ Run install.sh script:
 
 Run the web server (default on localhost:9999)
 
-    python app.py 
+    python app.py
 
 To uninstall running project files execute:
 
