@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -x
+
 print_usage() {
   printf "Usage: ./deploy_to_rpi.sh -i <RASPBERRY_IP> -d <DESTINATION_PATH>"
 }
@@ -18,7 +20,11 @@ echo "$PI_IP"
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 
-rsync -av --exclude 'venv' "$SCRIPT_DIR" pi@"$PI_IP":"$DEST_DIR"
+echo "$DEST_DIR"
+echo "$PI_IP"
+echo "$SCRIPT_DIR"
+
+rsync --exclude 'venv' -avci  "$SCRIPT_DIR"/* pi@"$PI_IP":"$DEST_DIR"
 
 ssh pi@$PI_IP <<EOF
   killall python

@@ -57,7 +57,7 @@ Bus in my case was number 1, it could also be 0 or 2. Try different combinations
 
 I normally develop application on desktop and deploy application to Raspberry remotely. To facilitate that, you can use helper script:
 
-    bash deploy_to_rpi.sh
+    bash deploy_to_rpi.sh -i <RASPBERRY_IP> -d <DESTINATION_PATH>
 
 Which will copy project files to specified folder on Raspberry, kill running python app and run the webserver. 
 
