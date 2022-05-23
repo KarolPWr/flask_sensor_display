@@ -28,6 +28,7 @@ def get_data_by_interval(interval_hours):
 
 @app.route('/debug')
 def index():
+    """ Display all records from database. Useful for debug purposes. """
     conn = get_db_connection()
     posts = conn.execute('SELECT * FROM temperature').fetchall()
     conn.close()
@@ -35,7 +36,7 @@ def index():
 
 
 @app.route('/temperature')
-def line():
+def temperature():
     data = get_data_by_interval(12)
     db_data = OrderedDict(data)
     line_dates = db_data.keys()

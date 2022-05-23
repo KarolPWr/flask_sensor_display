@@ -4,7 +4,6 @@ set -x
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 
-# Create and initialize database
 if [ ! -f "$SCRIPT_DIR"/temperature.db ]; then
   echo "Database not found! Creating database..."
   python3 create_db.py

@@ -45,6 +45,8 @@ it comes to GPIO and OS it should also work for other boards.
 If you have version of BME that has CSB and SDO pins, it is not necessary to connect them. However, sometimes due to
 different board versions I2C addresses can get mixed up. 
 
+Remember to enable i2c via `raspi-config`
+
 To confirm what address your sensor has, connect it to Raspberry and run command:
 
     i2cscan -y <BUS>
