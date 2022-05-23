@@ -14,6 +14,10 @@ Clone repository to your Raspberry:
 
     git clone https://github.com/KarolPWr/flask_sensor_display.git
 
+For stable version, checkout the latest tag:
+
+    git checkout tags/v1.0.0
+
 Install required python packages:
 
     pip3 install -r requirements.txt
