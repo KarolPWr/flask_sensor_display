@@ -1,0 +1,11 @@
+# This service unit is for running flask python server
+
+[Unit]
+Description=Run python flask server in the background
+
+[Service]
+Type=simple
+ExecStart=/bin/python3 /home/pi/flask_sensor_display/app.py 
+
+[Install]
+WantedBy=multi-user.target
